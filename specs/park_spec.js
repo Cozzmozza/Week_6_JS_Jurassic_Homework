@@ -66,16 +66,21 @@ describe('Park', function() {
   it('should be able to calculate the total number of visitors per year', function(){;
   // park.total_annual_visitors will run total_daily_visitors, and multiply by 365, or total open days
   // we will then compare 230*365 to it
-    days_open = 365;
+    let days_open = 365;
     const actual = park.total_annual_visitors(days_open);
     assert.strictEqual(actual, 230*365);
   });
 
-  it('should be able to calculate total revenue for one year');
+  it('should be able to calculate total revenue for one year', function(){;
   // park.total_annual_revenue COULD multiply total_annual_visitors by ticket_price
   // But shouldn't we assume a visitor will visit more than one dinosaur?
   // In which case we COULD use our dino with the highest visitors as our "total visitors per day"
   // (Since some might come to just see that dino, and leave)
   // Then compare our calculated number to the total_annual_revenue output
 
+  // For ease, just going to assume the ticket price is based on the total_annual_visitors.
+  let days_open = 365;
+  const actual = park.total_annual_revenue(days_open);
+  assert.strictEqual(actual, 365*185*230);
+  });
 });

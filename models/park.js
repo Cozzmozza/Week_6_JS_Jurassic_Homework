@@ -76,15 +76,21 @@ Park.prototype.same_species = function(search_species){
 }
 
 Park.prototype.total_daily_visitors = function(){
-    let daily_total = 0;
+    let total = 0;
     for (dino of this.dinosaurs){
-        daily_total += dino.guestsAttractedPerDay;
+        total += dino.guestsAttractedPerDay;
     }
-    return daily_total;
+    return total;
 }   
 
 Park.prototype.total_annual_visitors = function(days_open){
-    let annual_total = this.total_daily_visitors()*days_open;
-    return annual_total;
+    let total = this.total_daily_visitors() * days_open;
+    return total;
 }
+
+Park.prototype.total_annual_revenue = function(days_open){
+    let total = this.total_annual_visitors(days_open) * this.ticket_price;
+    return total;
+}
+
 module.exports = Park;
