@@ -26,6 +26,8 @@ describe('Park', function() {
   it('should have a collection of dinosaurs', function(){
     const actual = park.dinosaurs.length;
     assert.strictEqual(actual, 2);
+    // Instructor method:
+    // assert.deepStrictEqual(park.dinosaurs, [])
   });
   
   it('should be able to add a dinosaur to its collection',function(){
@@ -33,6 +35,10 @@ describe('Park', function() {
     park.add_dinosaur(dinosaur_3)
     const actual = park.dinosaurs.length;
     assert.strictEqual(actual, 3);
+    // Instructor method:
+    // trex1 has been defined already in beforeEach
+    // park.add(trex1)
+    // assert.deepStrictEqual(park.dinosaurs, [trex1])
   });
 
 
@@ -41,15 +47,15 @@ describe('Park', function() {
     park.remove_dinosaur(dinosaur);
     const actual = park.dinosaurs.length;
     assert.strictEqual(actual,1);
+    // Instructor:
+    // Added trex 1, and diplo, then removed trex1
+    // used park.remove(trex1)
+    // assert.deepStrictEqual(park.dinosaurs, [diplo])
   });
 
   it('should be able to find the dinosaur that attracts the most visitors', function(){
-    // Could grab a whole dinosaur, but it is nicer if we just grab a species
     const actual = park.best_attraction();
-    // const actual = park.dinosaurMax
     assert.strictEqual(actual, 'Big Ones');
-    // Note, we will return just the species from best_attraction eventually
-    // For now, just trying to return the dinosaur itself to see what happens in the terminal
   });
 
   it('should be able to find all dinosaurs of a particular species', function(){
@@ -82,5 +88,20 @@ describe('Park', function() {
   let days_open = 365;
   const actual = park.total_annual_revenue(days_open);
   assert.strictEqual(actual, 365*185*230);
+  // Should not put the calculation in, lazy! calculate it manually
+  });
+
+  // EXTENSIONS
+  it('should be able to remove dinos of particular species', function(){
+    park.removeBySpecies('Big Boys');
+    const actual = park.dinosaurs;
+    const expected = [dinosaur_2];
+    assert.deepStrictEqual(actual, expected);
+  });
+
+  it('should get a count of each dino diets', function(){
+    const actual = park.numberOfDinosByDiet();
+    const expected = {'Pineapples': 1, 'Gluten' : 1}
+    assert.deepStrictEqual(actual,expected);
   });
 });
