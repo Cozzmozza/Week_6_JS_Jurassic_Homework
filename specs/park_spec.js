@@ -59,15 +59,17 @@ describe('Park', function() {
   });
 
   it('should be able to calculate the total number of visitors per day', function(){
-    // park.total_daily_visitors will sum up guestsAttractedPerDay for each dino
-    // we will then compare our answer (230) to it
     const actual = park.total_daily_visitors();
     assert.strictEqual(actual, 230);
   });
 
-  it('should be able to calculate the total number of visitors per year');
+  it('should be able to calculate the total number of visitors per year', function(){;
   // park.total_annual_visitors will run total_daily_visitors, and multiply by 365, or total open days
   // we will then compare 230*365 to it
+    days_open = 365;
+    const actual = park.total_annual_visitors(days_open);
+    assert.strictEqual(actual, 230*365);
+  });
 
   it('should be able to calculate total revenue for one year');
   // park.total_annual_revenue COULD multiply total_annual_visitors by ticket_price

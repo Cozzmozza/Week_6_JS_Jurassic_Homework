@@ -83,4 +83,8 @@ Park.prototype.total_daily_visitors = function(){
     return daily_total;
 }   
 
+Park.prototype.total_annual_visitors = function(days_open){
+    let annual_total = this.total_daily_visitors()*days_open;
+    return annual_total;
+}
 module.exports = Park;
