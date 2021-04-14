@@ -56,8 +56,8 @@ Park.prototype.best_attraction = function(){
     // return this.dinosaur1
 
     // Alternative way to try make work:
-    let max_num_guests = Math.max(this.dinosaurs.guestsAttractedPerDay);
-    return max_num_guests.guestsAttractedPerDay;
+    // let max_num_guests = Math.max(this.dinosaurs.guestsAttractedPerDay);
+    // return max_num_guests.guestsAttractedPerDay;
     // Then find which dinosaur matches up with the max value found
     // This avoids having to import dinosaur here
 

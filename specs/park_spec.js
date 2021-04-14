@@ -52,16 +52,26 @@ describe('Park', function() {
     // For now, just trying to return the dinosaur itself to see what happens in the terminal
   });
 
-  xit('should be able to find all dinosaurs of a particular species', function(){
+  it('should be able to find all dinosaurs of a particular species', function(){
     search = 'Big Ones';
-    const actual = park.same_species(search);
+    const actual = park.same_species(search).length;
     assert.strictEqual(actual,1);
   });
 
-  it('should be able to calculate the total number of visitors per day');
+  it('should be able to calculate the total number of visitors per day', function(){
+    // park.total_daily_visitors will sum up guestsAttractedPerDay for each dino
+    // we will then compare our answer (230) to it
+  });
 
   it('should be able to calculate the total number of visitors per year');
+  // park.total_annual_visitors will run total_daily_visitors, and multiply by 365, or total open days
+  // we will then compare 230*365 to it
 
   it('should be able to calculate total revenue for one year');
+  // park.total_annual_revenue COULD multiply total_annual_visitors by ticket_price
+  // But shouldn't we assume a visitor will visit more than one dinosaur?
+  // In which case we COULD use our dino with the highest visitors as our "total visitors per day"
+  // (Since some might come to just see that dino, and leave)
+  // Then compare our calculated number to the total_annual_revenue output
 
 });
