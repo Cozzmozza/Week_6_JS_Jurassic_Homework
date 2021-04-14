@@ -75,5 +75,12 @@ Park.prototype.same_species = function(search_species){
     // Its like it cant find dino.species, or they simply do not match
 }
 
+Park.prototype.total_daily_visitors = function(){
+    let daily_total = 0;
+    for (dino of this.dinosaurs){
+        daily_total += dino.guestsAttractedPerDay;
+    }
+    return daily_total;
+}   
 
 module.exports = Park;

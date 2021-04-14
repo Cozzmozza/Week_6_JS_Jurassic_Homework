@@ -61,6 +61,8 @@ describe('Park', function() {
   it('should be able to calculate the total number of visitors per day', function(){
     // park.total_daily_visitors will sum up guestsAttractedPerDay for each dino
     // we will then compare our answer (230) to it
+    const actual = park.total_daily_visitors();
+    assert.strictEqual(actual, 230);
   });
 
   it('should be able to calculate the total number of visitors per year');
